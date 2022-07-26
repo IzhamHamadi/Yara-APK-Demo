@@ -34,7 +34,11 @@ class ResultPage extends StatelessWidget {
           Text(
               'Undetected: ${report.data?.attributes?.lastAnalysisStats?.undetected}'),
           Text('Yara Rule Source:-'),
-          Text('${report.data?.attributes?.crowdsourcedYaraResults}'),
+          Text(
+              '${report.data?.attributes?.crowdsourcedYaraResults?[0].rulesetName}'),
+          Text(
+              '${report.data?.attributes?.crowdsourcedYaraResults?[0].source}'),
+
           const SizedBox(
             //Empty space
             height: 80,
