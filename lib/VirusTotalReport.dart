@@ -294,7 +294,7 @@ class TotalVotes {
 
 // class PopularThreatClassification {
 String? suggestedThreatLabel;
-List<PopularThreatCategory>? popularThreatCategory;
+// List<PopularThreatCategory>? popularThreatCategory;
 // List<PopularThreatName>? popularThreatName;
 
 // PopularThreatClassification(
@@ -333,24 +333,24 @@ List<PopularThreatCategory>? popularThreatCategory;
 // }
 // }
 
-class PopularThreatCategory {
-  int? count;
-  String? value;
+// class PopularThreatCategory {
+//   int? count;
+//   String? value;
 
-  PopularThreatCategory({this.count, this.value});
+//   PopularThreatCategory({this.count, this.value});
 
-  PopularThreatCategory.fromJson(Map<String, dynamic> json) {
-    count = json['count'];
-    value = json['value'];
-  }
+//   PopularThreatCategory.fromJson(Map<String, dynamic> json) {
+//     count = json['count'];
+//     value = json['value'];
+//   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['count'] = this.count;
-    data['value'] = this.value;
-    return data;
-  }
-}
+//   Map<String, dynamic> toJson() {
+//     final Map<String, dynamic> data = new Map<String, dynamic>();
+//     data['count'] = this.count;
+//     data['value'] = this.value;
+//     return data;
+//   }
+// }
 
 // class LastAnalysisResults {
 //   Bkav? bkav;
@@ -878,79 +878,79 @@ class PopularThreatCategory {
 //   }
 // }
 
-class Bkav {
-  String? category;
-  String? engineName;
-  String? engineVersion;
-  Null? result;
-  String? method;
-  String? engineUpdate;
+// class Bkav {
+//   String? category;
+//   String? engineName;
+//   String? engineVersion;
+//   Null? result;
+//   String? method;
+//   String? engineUpdate;
 
-  Bkav(
-      {this.category,
-      this.engineName,
-      this.engineVersion,
-      this.result,
-      this.method,
-      this.engineUpdate});
+//   Bkav(
+//       {this.category,
+//       this.engineName,
+//       this.engineVersion,
+//       this.result,
+//       this.method,
+//       this.engineUpdate});
 
-  Bkav.fromJson(Map<String, dynamic> json) {
-    category = json['category'];
-    engineName = json['engine_name'];
-    engineVersion = json['engine_version'];
-    result = json['result'];
-    method = json['method'];
-    engineUpdate = json['engine_update'];
-  }
+//   Bkav.fromJson(Map<String, dynamic> json) {
+//     category = json['category'];
+//     engineName = json['engine_name'];
+//     engineVersion = json['engine_version'];
+//     result = json['result'];
+//     method = json['method'];
+//     engineUpdate = json['engine_update'];
+//   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['category'] = this.category;
-    data['engine_name'] = this.engineName;
-    data['engine_version'] = this.engineVersion;
-    data['result'] = this.result;
-    data['method'] = this.method;
-    data['engine_update'] = this.engineUpdate;
-    return data;
-  }
-}
+//   Map<String, dynamic> toJson() {
+//     final Map<String, dynamic> data = new Map<String, dynamic>();
+//     data['category'] = this.category;
+//     data['engine_name'] = this.engineName;
+//     data['engine_version'] = this.engineVersion;
+//     data['result'] = this.result;
+//     data['method'] = this.method;
+//     data['engine_update'] = this.engineUpdate;
+//     return data;
+//   }
+// }
 
-class Lionic {
-  String? category;
-  String? engineName;
-  String? engineVersion;
-  String? result;
-  String? method;
-  String? engineUpdate;
+// class Lionic {
+//   String? category;
+//   String? engineName;
+//   String? engineVersion;
+//   String? result;
+//   String? method;
+//   String? engineUpdate;
 
-  Lionic(
-      {this.category,
-      this.engineName,
-      this.engineVersion,
-      this.result,
-      this.method,
-      this.engineUpdate});
+//   Lionic(
+//       {this.category,
+//       this.engineName,
+//       this.engineVersion,
+//       this.result,
+//       this.method,
+//       this.engineUpdate});
 
-  Lionic.fromJson(Map<String, dynamic> json) {
-    category = json['category'];
-    engineName = json['engine_name'];
-    engineVersion = json['engine_version'];
-    result = json['result'];
-    method = json['method'];
-    engineUpdate = json['engine_update'];
-  }
+//   Lionic.fromJson(Map<String, dynamic> json) {
+//     category = json['category'];
+//     engineName = json['engine_name'];
+//     engineVersion = json['engine_version'];
+//     result = json['result'];
+//     method = json['method'];
+//     engineUpdate = json['engine_update'];
+//   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['category'] = this.category;
-    data['engine_name'] = this.engineName;
-    data['engine_version'] = this.engineVersion;
-    data['result'] = this.result;
-    data['method'] = this.method;
-    data['engine_update'] = this.engineUpdate;
-    return data;
-  }
-}
+//   Map<String, dynamic> toJson() {
+//     final Map<String, dynamic> data = new Map<String, dynamic>();
+//     data['category'] = this.category;
+//     data['engine_name'] = this.engineName;
+//     data['engine_version'] = this.engineVersion;
+//     data['result'] = this.result;
+//     data['method'] = this.method;
+//     data['engine_update'] = this.engineUpdate;
+//     return data;
+//   }
+// }
 
 // class Tehtris {
 //   String? category;

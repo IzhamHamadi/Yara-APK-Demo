@@ -53,10 +53,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //lists of jsonData
   //  String _jsonData;
-  late Map<String, dynamic> jsonData;
+  // late Map<String, dynamic> jsonData;
 
-  Future<Map<String, dynamic>> fetchData() async {
+  Future<Map<String, dynamic>> fetchData(dynamic responseOut) async {
     String responseback = "";
+    late Map<String, dynamic> jsonData;
     try {
       apkfileurl = url + "/" + apkfilehash; //file url
       var response = await dio.get(
@@ -157,16 +158,15 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 45,
               child: ElevatedButton(
                 onPressed: () async {
-                  uploadFile().then((valueTemp) {
-                    fetchData().then((value) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                ResultPage(responseback: value)),
-                      );
-                    });
-                  });
+                  Map<String, dynamic> jsonData;
+                  jsonData = await fetchData(await uploadFile());
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            ResultPage(responseback: jsonData)),
+                  );
                 },
                 child: const Text('Start'),
               ),
