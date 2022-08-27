@@ -38,12 +38,12 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+//Homepage
 class _MyHomePageState extends State<MyHomePage> {
-  // String yarafilename = 'No YARA file was chosen';
   String apkfilename = 'No APK file was chosen';
   var apkfilebyte,
       apkfilehash =
-          "bd6b21d3e46870a1b3a470d578746a6528ce4e13d68e24f25747ac45edfa6d56" //testing
+          "bd6b21d3e46870a1b3a470d578746a6528ce4e13d68e24f25747ac45edfa6d56" //Placeholder hash
       ,
       apkfileurl;
   final dio = diopack.Dio();
@@ -51,11 +51,16 @@ class _MyHomePageState extends State<MyHomePage> {
   final xapikey =
       "56a524fdd1fcfde4168d1621c5861595e3e7c6806749c44f7d73d65ca69b6f11"; //VirusTotal API key
 
+<<<<<<< Updated upstream
   //lists of jsonData
   //  String _jsonData;
   late Map<String, dynamic> jsonData;
 
   Future<Map<String, dynamic>> fetchData() async {
+=======
+  //Fetch report from API
+  Future<Map<String, dynamic>> fetchData(dynamic responseOut) async {
+>>>>>>> Stashed changes
     String responseback = "";
     try {
       apkfileurl = url + "/" + apkfilehash; //file url
@@ -68,18 +73,10 @@ class _MyHomePageState extends State<MyHomePage> {
           },
         ),
       );
-      // final response = await get(Uri.parse(url));
       jsonData = jsonDecode(response.toString());
 
       print(response.toString());
       responseback = response.toString();
-      // response.pipe(File("test.txt").openWrite());
-      // print(jsonData);
-      // print(jsonData['data']['attributes']['type_description']);
-      // setState(() {
-      //   _jsonData = response.toString();
-      // });
-
     } on diopack.DioError catch (e) {
       if (e.response != null) {
         print(e.response?.data);
@@ -94,6 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return jsonData;
   }
 
+  //Upload file bytes to API
   Future<dynamic> uploadFile() async {
     var response;
     try {
@@ -116,6 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return response;
   }
 
+  //Main widget
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,6 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            //Button to pick file
             SizedBox(
               width: 300,
               height: 45,
@@ -152,11 +152,13 @@ class _MyHomePageState extends State<MyHomePage> {
               //Empty space
               height: 50,
             ),
+            //Button to upload file and fetch respond
             SizedBox(
               width: 300,
               height: 45,
               child: ElevatedButton(
                 onPressed: () async {
+<<<<<<< Updated upstream
                   uploadFile().then((valueTemp) {
                     fetchData().then((value) {
                       Navigator.push(
@@ -167,6 +169,18 @@ class _MyHomePageState extends State<MyHomePage> {
                       );
                     });
                   });
+=======
+                  Map<String, dynamic> jsonData;
+                  dynamic respond = await uploadFile();
+                  jsonData = await fetchData(respond);
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            ResultPage(responseback: jsonData)),
+                  );
+>>>>>>> Stashed changes
                 },
                 child: const Text('Start'),
               ),

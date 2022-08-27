@@ -9,8 +9,8 @@ import 'package:yara_apk/VirusTotalReport.dart';
 class ResultPage extends StatelessWidget {
   ResultPage({Key? key, required this.responseback}) : super(key: key);
   Map<String, dynamic> responseback;
-  // String downloadnoti = '';
 
+//Main widget
   @override
   Widget build(BuildContext context) {
     var report = VTReport.fromJson(responseback);
@@ -20,12 +20,13 @@ class ResultPage extends StatelessWidget {
         title: const Text('Analysis Result'),
       ),
       body: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           const SizedBox(
             //Empty space
             height: 80,
           ),
+
+          //Result values
           Text('APK Name: ${report.data?.attributes?.meaningfulName}'),
           Text('Sha256: ${report.data?.attributes?.sha256}'),
           Text('Detections:-'),
@@ -38,11 +39,12 @@ class ResultPage extends StatelessWidget {
               '${report.data?.attributes?.crowdsourcedYaraResults?[0].rulesetName}'),
           Text(
               '${report.data?.attributes?.crowdsourcedYaraResults?[0].source}'),
-
           const SizedBox(
             //Empty space
             height: 80,
           ),
+
+          //Save report button
           SizedBox(
             width: 300,
             height: 45,
@@ -56,26 +58,27 @@ class ResultPage extends StatelessWidget {
                   background: Colors.blue,
                 );
               },
-              child: const Text('Download APK details'),
+              child: const Text('Save APK details'),
             ),
           ),
-          // Text(downloadnoti),
         ],
       ),
     );
   }
 
+  //Location to save report
   Future<String> get _localPath async {
-    // final directory = await getApplicationDocumentsDirectory();
     final directory = Directory('/storage/emulated/0/Download');
     return directory.path;
   }
 
+  //Name of the report
   Future<File> get _localFile async {
     final path = await _localPath;
     return File('$path/report.txt');
   }
 
+  //Write to text file function
   Future<File> writeToReport(Map<String, dynamic> reportJson) async {
     final file = await _localFile;
 
