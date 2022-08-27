@@ -51,17 +51,10 @@ class _MyHomePageState extends State<MyHomePage> {
   final xapikey =
       "56a524fdd1fcfde4168d1621c5861595e3e7c6806749c44f7d73d65ca69b6f11"; //VirusTotal API key
 
-<<<<<<< Updated upstream
-  //lists of jsonData
-  //  String _jsonData;
-  late Map<String, dynamic> jsonData;
-
-  Future<Map<String, dynamic>> fetchData() async {
-=======
   //Fetch report from API
   Future<Map<String, dynamic>> fetchData(dynamic responseOut) async {
->>>>>>> Stashed changes
     String responseback = "";
+    late Map<String, dynamic> jsonData;
     try {
       apkfileurl = url + "/" + apkfilehash; //file url
       var response = await dio.get(
@@ -158,18 +151,6 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 45,
               child: ElevatedButton(
                 onPressed: () async {
-<<<<<<< Updated upstream
-                  uploadFile().then((valueTemp) {
-                    fetchData().then((value) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                ResultPage(responseback: value)),
-                      );
-                    });
-                  });
-=======
                   Map<String, dynamic> jsonData;
                   dynamic respond = await uploadFile();
                   jsonData = await fetchData(respond);
@@ -180,7 +161,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         builder: (context) =>
                             ResultPage(responseback: jsonData)),
                   );
->>>>>>> Stashed changes
                 },
                 child: const Text('Start'),
               ),
